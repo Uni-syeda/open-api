@@ -1,9 +1,9 @@
-const catContainer = document.getElementById("catContainer");
-const fetchCatButton = document.getElementById("fetch-cat");
-
+const catOrDogContainer = document.getElementById("catOrDogContainer");
+const fetchCatButton = document.getElementById("fetchCat");
+const fetchDogBtn = document.getElementById("fetchDog");
 fetchCatButton.addEventListener("click", () => {
   // Clear out the previous cat from DOM
-  catContainer.innerHTML = "";
+  catOrDogContainer.innerHTML = "";
 
   fetch(
     "https://api.thecatapi.com/v1/images/search?limit=1&has_breeds=1&api_key=live_YNdBDkb6hJuKn2sTeEUeI2J2p14xqL77loXkCwJJVr284EgKEM1nSrVDrdrpCZKb"
@@ -28,9 +28,9 @@ fetchCatButton.addEventListener("click", () => {
       const breedDescription = document.createElement("p");
       breedDescription.innerText = data[0].breeds[0].description;
 
-      catContainer.appendChild(catBreedTitle);
-      catContainer.appendChild(breedDescription);
-      catContainer.appendChild(catImg);
+      catOrDogContainer.appendChild(catBreedTitle);
+      catOrDogContainer.appendChild(breedDescription);
+      catOrDogContainer.appendChild(catImg);
     })
     .catch((err) => {
       console.warn(err);
